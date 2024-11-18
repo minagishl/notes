@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Line from '../components/Line.astro';
 import { emojiToTwemojiUrl } from '../utils';
+import { Icon } from 'astro-icon/components';
 
 type Props = CollectionEntry<'articles'>['data'];
 
@@ -28,7 +29,10 @@ const { title, description, pubDate, updatedDate, emoji } = Astro.props;
       </div>
       <article>
         <div class='pt-6'>
-          <div class='w-full items-center justify-center flex flex-col pb-6'>
+          <div class='w-full items-center justify-center flex flex-col pb-6 relative'>
+            <a class='' href='/'>
+              <Icon name='mdi:chevron-left' class='text-slate-200 text-xl absolute top-1 left-0' />
+            </a>
             <div class='text-slate-800 text-xl font-semibold m-0'>
               <h1>{title}</h1>
             </div>
