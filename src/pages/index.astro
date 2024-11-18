@@ -6,34 +6,55 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
 const posts = (await getCollection('articles')).sort(
-    (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+interface Post {
+  id: string;
+  slug: string;
+  body: string;
+  collection: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    updatedDate?: Date;
+    heroImage?: string;
+  };
+}
 ---
+
 <!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <main class="max-w-screen-lg mx-auto">
-            <section>
-                <ul class="flex flex-wrap gap-8 list-none p-0">
-                    {
-                        posts.map((post: { slug: any; data: { heroImage: string | null | undefined; title: unknown; pubDate: Date; }; }) => (
-                            <li class="w-full md:w-1/2">
-                                <a href={`/articles/${post.slug}/`} class="block">
-                                    <img class="mb-2 rounded-lg" width={720} height={360} src={post.data.heroImage} alt="" />
-                                    <h4 class="title text-black m-0">{post.data.title}</h4>
-                                    <p class="date text-gray-500 m-0">
-                                        <FormattedDate date={post.data.pubDate} />
-                                    </p>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-        <Footer />
-    </body>
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <main class='max-w-screen-lg mx-auto'>
+      <section>
+        <ul class='flex flex-wrap gap-8 list-none p-0'>
+          {
+            posts.map((post: Post) => (
+              <li class='w-full md:w-1/2'>
+                <a href={`/articles/${post.slug}/`} class='block'>
+                  <img
+                    class='mb-2 rounded-lg'
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt=''
+                  />
+                  <h4 class='title text-black m-0'>{post.data.title}</h4>
+                  <p class='date text-gray-500 m-0'>
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
