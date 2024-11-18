@@ -46,7 +46,7 @@ interface Post {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main class='max-w-screen-md px-6 md:px-10 py-20 mx-auto'>
+    <main class='max-w-screen-md px-6 md:px-10 pt-20 mx-auto'>
       <section>
         <div class='flex flex-wrap gap-8 items-start justify-between'>
           {
@@ -55,7 +55,7 @@ interface Post {
                 <article class='flex justify-between'>
                   <a
                     href={`/articles/${post.slug}`}
-                    class='flex items-center justify-center size-20 text-3xl rounded-2xl bg-slate-100'
+                    class='flex items-center justify-center size-20 rounded-2xl bg-slate-100'
                   >
                     <img
                       src={emojiToTwemojiUrl(post.data.emoji)}
@@ -65,11 +65,9 @@ interface Post {
                   </a>
                   <div style='width: calc(100% - 94px);'>
                     <a href={`/articles/${post.slug}`}>
-                      <h2 class='title text-slate-800 text-base font-semibold m-0'>
-                        {post.data.title}
-                      </h2>
+                      <h2 class='text-slate-800 text-base font-semibold m-0'>{post.data.title}</h2>
                     </a>
-                    <p class='date text-slate-500 text-sm mt-1'>
+                    <p class='text-slate-500 text-sm mt-1'>
                       <FormattedDate date={post.data.pubDate} />
                     </p>
                   </div>
@@ -80,6 +78,9 @@ interface Post {
         </div>
       </section>
     </main>
+    <div class='flex px-6 md:px-10 w-full max-w-screen-md mx-auto py-10'>
+      <span class='h-0.5 bg-slate-100 w-full max-w-screen-md mx-auto'></span>
+    </div>
     <Footer />
   </body>
 </html>
