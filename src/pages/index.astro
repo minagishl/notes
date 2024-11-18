@@ -9,6 +9,21 @@ const posts = (await getCollection('articles')).sort(
   (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+function emojiToTwemojiUrl(emoji: string): string {
+  const baseUrl = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.1.0/svg/';
+
+  // Convert pictograms to Unicode code points
+  const codePoints = Array.from(emoji)
+    .map((char) => {
+      const codePoint = char.codePointAt(0);
+      return codePoint !== undefined ? codePoint.toString(16) : '';
+    })
+    .join('-');
+
+  // Returns the completed URL
+  return `${baseUrl}${codePoints}.svg`;
+}
+
 interface Post {
   id: string;
   slug: string;
@@ -20,6 +35,7 @@ interface Post {
     pubDate: Date;
     updatedDate?: Date;
     heroImage?: string;
+    emoji: string;
   };
 }
 ---
@@ -30,29 +46,38 @@ interface Post {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main class='max-w-screen-lg mx-auto'>
+    <main class='max-w-screen-md px-6 md:px-10 py-20 mx-auto'>
       <section>
-        <ul class='flex flex-wrap gap-8 list-none p-0'>
+        <div class='flex flex-wrap gap-8 items-start justify-between'>
           {
             posts.map((post: Post) => (
-              <li class='w-full md:w-1/2'>
-                <a href={`/articles/${post.slug}/`} class='block'>
-                  <img
-                    class='mb-2 rounded-lg'
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt=''
-                  />
-                  <h4 class='title text-black m-0'>{post.data.title}</h4>
-                  <p class='date text-gray-500 m-0'>
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
+              <div class='w-full md:w-[47%]'>
+                <article class='flex justify-between'>
+                  <a
+                    href={`/articles/${post.slug}`}
+                    class='flex items-center justify-center size-20 text-3xl rounded-2xl bg-slate-100'
+                  >
+                    <img
+                      src={emojiToTwemojiUrl(post.data.emoji)}
+                      alt={post.data.emoji}
+                      class='size-10 inline-flex'
+                    />
+                  </a>
+                  <div style='width: calc(100% - 94px);'>
+                    <a href={`/articles/${post.slug}`}>
+                      <h2 class='title text-slate-800 text-base font-semibold m-0'>
+                        {post.data.title}
+                      </h2>
+                    </a>
+                    <p class='date text-slate-500 text-sm mt-1'>
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                  </div>
+                </article>
+              </div>
             ))
           }
-        </ul>
+        </div>
       </section>
     </main>
     <Footer />
