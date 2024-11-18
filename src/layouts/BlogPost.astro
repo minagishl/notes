@@ -3,81 +3,47 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Line from '../components/Line.astro';
+import { emojiToTwemojiUrl } from '../utils';
 
 type Props = CollectionEntry<'articles'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, emoji } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<html lang='en'>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body class='flex flex-col min-h-screen w-screen'>
+    <span class='pt-16 max-w-screen-md px-6 md:px-10 mx-auto w-full flex'></span>
+    <main class='max-w-screen-md w-full px-6 md:px-10 mx-auto flex-1'>
+      <div class='w-full flex items-center justify-center'>
+        <img
+          src={emojiToTwemojiUrl(emoji)}
+          alt={emoji}
+          class='size-16 inline-flex select-none pointer-events-none'
+        />
+      </div>
+      <article>
+        <div class='pt-6'>
+          <div class='w-full items-center justify-center flex flex-col pb-6'>
+            <div class='text-slate-800 text-xl font-semibold m-0'>
+              <h1>{title}</h1>
+            </div>
+            <div class='text-slate-500 text-sm mt-2'>
+              <FormattedDate date={pubDate} />に公開
+            </div>
+          </div>
+          <div class='flex w-full max-w-screen-md mx-auto pt-4 pb-10'>
+            <span class='h-0.5 bg-slate-100 w-full max-w-screen-md mx-auto'></span>
+          </div>
+          <slot class='flex-1' />
+        </div>
+      </article>
+    </main>
+    <Line />
+    <Footer />
+  </body>
 </html>

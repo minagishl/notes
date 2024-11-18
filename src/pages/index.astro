@@ -6,25 +6,11 @@ import Line from '../components/Line.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import { emojiToTwemojiUrl } from '../utils';
 
 const posts = (await getCollection('articles')).sort(
   (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-function emojiToTwemojiUrl(emoji: string): string {
-  const baseUrl = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.1.0/svg/';
-
-  // Convert pictograms to Unicode code points
-  const codePoints = Array.from(emoji)
-    .map((char) => {
-      const codePoint = char.codePointAt(0);
-      return codePoint !== undefined ? codePoint.toString(16) : '';
-    })
-    .join('-');
-
-  // Returns the completed URL
-  return `${baseUrl}${codePoints}.svg`;
-}
 
 interface Post {
   id: string;
@@ -47,6 +33,7 @@ interface Post {
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
+
   <body class='flex flex-col min-h-screen w-screen'>
     <Header />
     <main class='max-w-screen-md w-full px-6 md:px-10 mx-auto flex-1'>
