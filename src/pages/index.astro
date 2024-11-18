@@ -1,6 +1,8 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Line from '../components/Line.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -46,7 +48,8 @@ interface Post {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class='flex flex-col min-h-screen w-screen'>
-    <main class='max-w-screen-md px-6 md:px-10 pt-20 mx-auto flex-1'>
+    <Header />
+    <main class='max-w-screen-md w-full px-6 md:px-10 mx-auto flex-1'>
       <section>
         <div class='flex flex-wrap gap-8 items-start justify-between'>
           {
@@ -78,9 +81,7 @@ interface Post {
         </div>
       </section>
     </main>
-    <div class='flex px-6 md:px-10 w-full max-w-screen-md mx-auto py-10'>
-      <span class='h-0.5 bg-slate-100 w-full max-w-screen-md mx-auto'></span>
-    </div>
+    <Line />
     <Footer />
   </body>
 </html>
