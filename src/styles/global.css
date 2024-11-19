@@ -19,11 +19,11 @@
   }
 
   h5 {
-    @apply text-sm font-semibold mb-1 mt-4;
+    @apply text-sm font-semibold mb-2 mt-4;
   }
 
   h6 {
-    @apply text-xs font-semibold mb-1 mt-4;
+    @apply text-xs font-semibold mb-2 mt-4 text-slate-600;
   }
 
   p {
@@ -31,9 +31,9 @@
   }
 
   pre {
-    @apply text-sm p-2 px-1 my-2 rounded;
+    @apply text-sm p-2 px-1 my-2 rounded !bg-slate-800;
     code {
-      @apply text-sm bg-slate-800 flex flex-col;
+      @apply text-sm bg-slate-800 flex flex-col font-mono;
       /* Hide unnecessary lines */
       span.line {
         @apply h-5 [&:last-child]:h-fit;
@@ -50,7 +50,7 @@
   }
 
   hr {
-    @apply my-4 border-t border-slate-300;
+    @apply my-6 border-2 border-t border-slate-200;
   }
 
   ul {

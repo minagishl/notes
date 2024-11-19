@@ -9,6 +9,9 @@ export function emojiToTwemojiUrl(emoji: string): string {
     })
     .join("-");
 
+  // Remove part after the first hyphen
+  const cleanedCodePoints = codePoints.split("-")[0];
+
   // Returns the completed URL
-  return `${baseUrl}${codePoints}.svg`;
+  return `${baseUrl}${cleanedCodePoints}.svg`;
 }
