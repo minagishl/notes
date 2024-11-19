@@ -27,7 +27,7 @@
   }
 
   p {
-    @apply text-sm;
+    @apply text-sm mb-3 [&:not(:first-child)]:mt-3;
   }
 
   pre {
@@ -55,6 +55,10 @@
 
   ul {
     @apply list-disc pl-4 my-2;
+
+    li {
+      @apply text-sm;
+    }
   }
 
   ul.contains-task-list {
