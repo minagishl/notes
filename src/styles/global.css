@@ -1,0 +1,77 @@
+.container {
+  /* Color */
+  @apply text-slate-800;
+
+  h1 {
+    @apply text-2xl font-semibold pb-1 border-b-2 border-slate-100 mb-4 [&:not(:first-child)]:mt-8;
+  }
+
+  h2 {
+    @apply text-xl font-semibold pb-1 border-b-2 border-slate-100 mb-2 [&:not(:first-child)]:mt-6;
+  }
+
+  h3 {
+    @apply text-lg font-semibold mb-2 [&:not(:first-child)]:mt-4;
+  }
+
+  h4 {
+    @apply text-base font-semibold mb-2 mt-4;
+  }
+
+  h5 {
+    @apply text-sm font-semibold mb-1 mt-4;
+  }
+
+  h6 {
+    @apply text-xs font-semibold mb-1 mt-4;
+  }
+
+  p {
+    @apply text-sm;
+  }
+
+  pre {
+    @apply text-sm p-2 px-1 my-2 rounded;
+    code {
+      @apply text-sm bg-slate-800 flex flex-col;
+      /* Hide unnecessary lines */
+      span.line {
+        @apply h-5 [&:last-child]:h-fit;
+      }
+    }
+  }
+
+  code {
+    @apply text-sm bg-slate-100 px-1 mx-0.5 rounded;
+  }
+
+  blockquote {
+    @apply text-sm border-l-[3px] border-slate-300 pl-2 my-2;
+  }
+
+  hr {
+    @apply my-4 border-t border-slate-300;
+  }
+
+  ul {
+    @apply list-disc pl-4 my-2;
+  }
+
+  ol {
+    @apply list-decimal pl-4 my-2;
+  }
+
+  a {
+    @apply text-blue-500 hover:underline;
+  }
+
+  table {
+    @apply w-fit max-w-full border-collapse my-4 border border-slate-300;
+    th {
+      @apply text-sm font-semibold border-b border-slate-300 p-2 bg-slate-100 border-r;
+    }
+    td {
+      @apply text-sm border-b border-r border-slate-300 p-2;
+    }
+  }
+}

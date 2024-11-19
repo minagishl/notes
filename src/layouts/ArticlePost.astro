@@ -6,6 +6,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Line from '../components/Line.astro';
 import { emojiToTwemojiUrl } from '../utils';
 import { Icon } from 'astro-icon/components';
+import '../styles/global.css';
 
 type Props = CollectionEntry<'articles'>['data'];
 
@@ -43,7 +44,9 @@ const { title, description, pubDate, updatedDate, emoji } = Astro.props;
           <div class='flex w-full max-w-screen-md mx-auto pt-4 pb-10'>
             <span class='h-0.5 bg-slate-100 w-full max-w-screen-md mx-auto'></span>
           </div>
-          <slot class='flex-1' />
+          <div class='container'>
+            <slot />
+          </div>
         </div>
       </article>
     </main>
