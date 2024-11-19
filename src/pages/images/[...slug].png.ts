@@ -5,8 +5,9 @@ import { codePoint } from "../../utils";
 
 export async function getStaticPaths() {
   const posts = await getCollection("articles");
+  const pages = [posts[0], ...(await getCollection("other"))];
   const uniqueSlugs = new Set(
-    posts.map((post: any) => codePoint(post.data.emoji)),
+    pages.map((page: any) => codePoint(page.data.emoji)),
   );
 
   return Array.from(uniqueSlugs).map((slug) => ({
