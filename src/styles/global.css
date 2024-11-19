@@ -57,6 +57,10 @@
     @apply list-disc pl-4 my-2;
   }
 
+  ul.contains-task-list {
+    @apply list-none !pl-1 my-2;
+  }
+
   ol {
     @apply list-decimal pl-4 my-2;
   }
