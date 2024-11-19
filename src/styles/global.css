@@ -27,7 +27,7 @@
   }
 
   p {
-    @apply text-sm mb-4 leading-6 [&:not(:first-child)]:mt-3;
+    @apply text-sm mb-2 leading-6 [&:not(:first-child)]:mt-4;
   }
 
   pre {
