@@ -57,7 +57,7 @@
     @apply list-disc pl-4 my-2;
 
     li {
-      @apply text-sm;
+      @apply text-sm [&:not(:first-child)]:mt-2;
     }
   }
 
