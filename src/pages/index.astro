@@ -55,7 +55,9 @@ interface Post {
                   </a>
                   <div style='width: calc(100% - 94px);'>
                     <a href={`/articles/${post.slug}`}>
-                      <h2 class='text-slate-800 text-base font-semibold m-0'>{post.data.title}</h2>
+                      <h2 class='text-slate-800 text-base font-semibold m-0 line-clamp-2'>
+                        {post.data.title}
+                      </h2>
                     </a>
                     <p class='text-slate-500 text-sm mt-1'>
                       <FormattedDate date={post.data.pubDate} />
