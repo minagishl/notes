@@ -31,7 +31,13 @@ const { title, description, emoji = '🟠' } = Astro.props;
 <meta property='og:url' content={Astro.url} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
-<meta property='og:image' content={new URL(`/images/${codePoint(emoji)}.png`, Astro.url.origin)} />
+<meta
+  property='og:image'
+  content={new URL(
+    `https://cdn.jsdelivr.net/gh/minagishl/assets/notes/${codePoint(emoji)}.png`,
+    Astro.url.origin
+  )}
+/>
 
 <!-- Twitter -->
 <meta property='twitter:card' content='summary' />
@@ -40,5 +46,8 @@ const { title, description, emoji = '🟠' } = Astro.props;
 <meta property='twitter:description' content={description} />
 <meta
   property='twitter:image'
-  content={new URL(`/images/${codePoint(emoji)}.png`, Astro.url.origin)}
+  content={new URL(
+    `https://cdn.jsdelivr.net/gh/minagishl/assets/notes/${codePoint(emoji)}.png`,
+    Astro.url.origin
+  )}
 />
