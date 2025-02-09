@@ -14,4 +14,9 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://notes.minagishl.com",
   integrations: [mdx(), sitemap(), tailwind(), icon(), react()],
+  markdown: {
+    shikiConfig: {
+      theme: "dark-plus",
+    },
+  },
 });
