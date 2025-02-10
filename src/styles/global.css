@@ -94,4 +94,8 @@
       @apply text-sm pl-4;
     }
   }
+
+  strong {
+    @apply font-semibold;
+  }
 }
