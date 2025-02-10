@@ -3,11 +3,11 @@
   @apply text-slate-800;
 
   h1 {
-    @apply text-2xl font-semibold pb-2 border-b-2 border-slate-100 mb-4 [&:not(:first-child)]:mt-12;
+    @apply text-2xl font-semibold border-b-2 border-slate-100 mb-4 [&:not(:first-child)]:mt-12;
   }
 
   h2 {
-    @apply text-xl font-semibold pb-2 border-b-2 border-slate-100 mb-2 [&:not(:first-child)]:mt-10;
+    @apply text-xl font-semibold border-b-2 border-slate-100 mb-2 [&:not(:first-child)]:mt-10;
   }
 
   h3 {
