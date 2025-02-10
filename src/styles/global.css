@@ -31,7 +31,7 @@
   }
 
   pre {
-    @apply text-sm p-2 px-1 my-2 rounded !bg-slate-800;
+    @apply text-sm p-2 px-1 my-3 rounded !bg-slate-800;
     code {
       @apply text-sm bg-slate-800 flex flex-col font-mono;
       /* Hide unnecessary lines */
