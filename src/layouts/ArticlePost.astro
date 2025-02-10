@@ -45,14 +45,19 @@ const {
       <article>
         <div class='pt-6'>
           <div class='w-full items-center justify-center flex flex-col pb-6 relative'>
-            <a class='' href='/'>
-              <Icon name='mdi:chevron-left' class='text-slate-400 text-xl absolute top-1 left-0' />
-            </a>
             <div class='text-slate-800 text-xl font-semibold m-0 text-center'>
               <h1>{title}</h1>
             </div>
-            <div class='text-slate-500 text-sm mt-2'>
-              <FormattedDate date={pubDate} />に公開
+            <div class='text-slate-500 text-sm mt-2 flex items-center justify-center space-x-2'>
+              <div>
+                <a href='/' class='hover:underline flex items-center'>TOP</a>
+              </div>
+              <div>
+                <span class='text-slate-400'>/</span>
+              </div>
+              <div>
+                <FormattedDate date={pubDate} />に公開
+              </div>
             </div>
           </div>
           <div class='container mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
