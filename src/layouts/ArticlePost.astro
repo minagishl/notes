@@ -9,9 +9,15 @@ import { emojiToTwemojiUrl } from '../utils';
 import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
 
-type Props = CollectionEntry<'articles'>['data'];
+type ArticleProps = CollectionEntry<'articles'>['data'] & {
+  headings?: {
+    depth: number;
+    slug: string;
+    text: string;
+  }[];
+};
 
-const { title, description, pubDate, emoji, headings } = Astro.props;
+const { title, description, pubDate, emoji, headings = [] } = Astro.props as ArticleProps;
 ---
 
 <html lang='en'>
