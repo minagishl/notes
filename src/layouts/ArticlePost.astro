@@ -51,6 +51,27 @@ const { title, description, pubDate, emoji, headings = [] } = Astro.props as Art
           <div class='container mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
             <TableOfContents headings={headings} />
             <slot />
+            {
+              import.meta.env.PUBLIC_AMAZON_WISH_LIST_URL && (
+                <div class='border-t-2 border-slate-200 mt-6 sm:mt-10'>
+                  <div class='mt-6 sm:mt-10 bg-blue-100 rounded-md'>
+                    <a
+                      href={import.meta.env.PUBLIC_AMAZON_WISH_LIST_URL}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      class='flex items-center p-2.5 cursor-pointer justify-center text-blue-600 hover:underline'
+                    >
+                      <span class='ml-1 font-medium text-sm text-center'>
+                        記事を気に入っていただけたら、Amazon ほしい物リストを覗いてみてください！
+                      </span>
+                      <span class='ml-1'>
+                        <Icon name='mdi:open-in-new' />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              )
+            }
           </div>
         </div>
       </article>
