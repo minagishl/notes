@@ -3,11 +3,11 @@
   @apply text-slate-800;
 
   h1 {
-    @apply text-2xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-6 [&:not(:first-child)]:mt-14;
+    @apply text-2xl font-semibold border-b-2 pb-1.5 border-slate-100 mb-6 [&:not(:first-child)]:mt-14;
   }
 
   h2 {
-    @apply text-xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-4 [&:not(:first-child)]:mt-12;
+    @apply text-xl font-semibold border-b-2 pb-1.5 border-slate-100 mb-4 [&:not(:first-child)]:mt-12;
   }
 
   h3 {
@@ -27,7 +27,7 @@
   }
 
   p {
-    @apply text-sm mt-2 leading-6 [&:has(+p)]:mb-6;
+    @apply text-sm leading-6 [&:has(+p)]:mb-6 [&:is(p+p)]:mt-2;
   }
 
   pre {

@@ -34,7 +34,7 @@ interface Post {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class='flex flex-col min-h-screen w-screen'>
+  <body class='flex flex-col min-h-screen w-screen bg-slate-100'>
     <Header />
     <main class='max-w-screen-md w-full px-6 md:px-10 mx-auto flex-1'>
       <section>
@@ -45,7 +45,7 @@ interface Post {
                 <article class='flex justify-between'>
                   <a
                     href={`/articles/${post.slug}`}
-                    class='flex items-center justify-center size-20 rounded-2xl bg-slate-100'
+                    class='flex items-center justify-center size-20 rounded-2xl bg-white'
                   >
                     <img
                       src={emojiToTwemojiUrl(post.data.emoji)}
