@@ -4,13 +4,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Line from '../components/Line.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { emojiToTwemojiUrl } from '../utils';
 import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
 
 type Props = CollectionEntry<'articles'>['data'];
 
-const { title, description, pubDate, emoji } = Astro.props;
+const { title, description, pubDate, emoji, headings } = Astro.props;
 ---
 
 <html lang='en'>
@@ -42,6 +43,7 @@ const { title, description, pubDate, emoji } = Astro.props;
             </div>
           </div>
           <div class='container mt-2 p-6 bg-slate-100 rounded-lg'>
+            <TableOfContents headings={headings} />
             <slot />
           </div>
         </div>

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'articles'>;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 
 const data = {
   title: post.data.title,
@@ -21,6 +21,7 @@ const data = {
   pubDate: post.data.pubDate,
   emoji: post.data.emoji,
   slug: post.slug,
+  headings: headings,
 };
 ---
 

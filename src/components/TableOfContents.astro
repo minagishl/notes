@@ -1,0 +1,37 @@
+---
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+
+// If there are no headings, don't render the table of contents
+if (headings.length === 0) {
+  return null;
+}
+---
+
+<details class='mb-6 border-slate-200 border-2 rounded-lg open:bg-slate-300/50 overflow-hidden'>
+  <summary class='text-sm select-none py-2.5 px-4 cursor-pointer'>
+    <span class='ml-px'>目次</span>
+  </summary>
+  <div class='pl-3 py-1.5 bg-slate-100 border-t-2 border-slate-200'>
+    <ul class='list-disc list-inside'>
+      {
+        headings.map((heading) => (
+          <li>
+            <a href={`#${heading.slug}`} class='text-blue-600 hover:underline'>
+              {heading.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</details>
