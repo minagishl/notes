@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class='my-4 mb-6 p-4 bg-blue-100 rounded-md flex items-center space-x-4'>
+  <Icon name='mdi:info-outline' class='text-blue-500 size-6' />
+  <p>{text}</p>
+</div>
