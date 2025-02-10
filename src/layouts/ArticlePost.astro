@@ -17,7 +17,14 @@ type ArticleProps = CollectionEntry<'articles'>['data'] & {
   }[];
 };
 
-const { title, description, pubDate, emoji, headings = [] } = Astro.props as ArticleProps;
+const {
+  title,
+  description,
+  pubDate,
+  emoji,
+  headings = [],
+  hiddenWishlist,
+} = Astro.props as ArticleProps;
 ---
 
 <html lang='en'>
@@ -52,7 +59,7 @@ const { title, description, pubDate, emoji, headings = [] } = Astro.props as Art
             <TableOfContents headings={headings} />
             <slot />
             {
-              import.meta.env.PUBLIC_AMAZON_WISH_LIST_URL && (
+              import.meta.env.PUBLIC_AMAZON_WISH_LIST_URL && !hiddenWishlist && (
                 <div class='border-t-2 border-slate-200 mt-6 sm:mt-10'>
                   <div class='mt-6 sm:mt-10 bg-blue-100 rounded-md'>
                     <a
