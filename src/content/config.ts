@@ -10,6 +10,7 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     emoji: z.string(),
+    hiddenWishlist: z.boolean().optional(),
   }),
 });
 
