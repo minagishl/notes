@@ -3,27 +3,27 @@
   @apply text-slate-800;
 
   h1 {
-    @apply text-2xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-6 [&:not(:first-child)]:mt-12;
+    @apply text-2xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-6 [&:not(:first-child)]:mt-14;
   }
 
   h2 {
-    @apply text-xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-4 [&:not(:first-child)]:mt-10;
+    @apply text-xl font-semibold border-b-2 pb-1.5 border-slate-200 mb-4 [&:not(:first-child)]:mt-12;
   }
 
   h3 {
-    @apply text-lg font-semibold mb-2 [&:not(:first-child)]:mt-8;
+    @apply text-lg font-semibold mb-2 [&:not(:first-child)]:mt-10;
   }
 
   h4 {
-    @apply text-base font-semibold mb-2 mt-8;
+    @apply text-base font-semibold mb-2 mt-10;
   }
 
   h5 {
-    @apply text-sm font-semibold mb-2 mt-8;
+    @apply text-sm font-semibold mb-2 mt-10;
   }
 
   h6 {
-    @apply text-xs font-semibold mb-2 mt-8 text-slate-600;
+    @apply text-xs font-semibold mb-2 mt-10 text-slate-600;
   }
 
   p {
