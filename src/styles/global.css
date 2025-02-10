@@ -76,7 +76,7 @@
   table {
     @apply w-fit max-w-full border-collapse my-4 border border-slate-300;
     th {
-      @apply text-sm font-semibold border-b border-slate-300 p-2 bg-slate-100 border-r;
+      @apply text-sm font-semibold border-b border-slate-300 p-2 bg-slate-200 border-r;
     }
     td {
       @apply text-sm border-b border-r border-slate-300 p-2;
