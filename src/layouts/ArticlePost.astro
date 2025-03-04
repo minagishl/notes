@@ -31,6 +31,7 @@ const {
   <head>
     <BaseHead title={title} description={description} emoji={emoji} />
     <script
+      is:inline
       type='application/ld+json'
       set:html={JSON.stringify({
         '@context': 'https://schema.org',
