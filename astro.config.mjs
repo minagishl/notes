@@ -27,7 +27,13 @@ export default defineConfig({
     tailwind(),
     icon(),
     react(),
-    compress(),
+    compress({
+      HTML: {
+        "html-minifier-terser": {
+          minifyCSS: false,
+        },
+      },
+    }),
   ],
   markdown: {
     shikiConfig: {
