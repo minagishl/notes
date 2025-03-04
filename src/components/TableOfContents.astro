@@ -17,21 +17,30 @@ if (headings.length === 0) {
 }
 ---
 
-<details class='mb-6 border-slate-100 border-[1.5px] rounded-lg open:bg-slate-100 overflow-hidden'>
-  <summary class='text-sm select-none py-2.5 px-4 cursor-pointer'>
-    <span class='ml-px'>目次</span>
-  </summary>
-  <div class='pl-3 py-1.5 bg-white border-t-[1.5px] border-slate-100'>
-    <ul class='list-disc list-inside'>
-      {
-        headings.map((heading) => (
-          <li>
-            <a href={`#${heading.slug}`} class='text-blue-600 hover:underline'>
-              {heading.text}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</details>
+<nav aria-label='目次'>
+  <details
+    class='mb-6 border-slate-100 border-[1.5px] rounded-lg open:bg-slate-100 overflow-hidden'
+    aria-expanded='false'
+  >
+    <summary class='text-sm select-none py-2.5 px-4 cursor-pointer'>
+      <span class='ml-px'>目次</span>
+    </summary>
+    <div class='pl-3 py-1.5 bg-white border-t-[1.5px] border-slate-100'>
+      <ul class='list-disc list-inside' role='list'>
+        {
+          headings.map((heading) => (
+            <li role='listitem'>
+              <a
+                href={`#${heading.slug}`}
+                class='text-blue-600 hover:underline'
+                aria-label={`${heading.text}へジャンプ`}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </details>
+</nav>

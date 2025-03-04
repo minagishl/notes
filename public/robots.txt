@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://notes.minagishl.com/sitemap-index.xml
