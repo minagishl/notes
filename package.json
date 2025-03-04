@@ -30,6 +30,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/sharp": "^0.31.1"
+    "@types/sharp": "^0.31.1",
+    "astro-compress": "2.3.6"
   }
 }
