@@ -45,6 +45,6 @@ ZEN Study 動くWebアプリコンテスト2024 冬で視聴者特別賞を受�
 
 ## 参考リンク
 
-[GitHub Commit 詳細 / 滑り込み](https://github.com/progedu/webappcontest/commit/c9d91be7a86c220b8e0a4bfb1e52562ef6cb405e)  
-[GitHub Commit 詳細 / 滑り込み](https://github.com/progedu/webappcontest/commit/2de258bec1aa47a4685b4ca90933cedd9e6d8315)  
-[GitHub Commit 詳細 / 消えたコミット](https://github.com/progedu/webappcontest/commit/94daec0b82f18df80a2f14d12783fe49666591a7)
+- [GitHub Commit 詳細 / 滑り込み](https://github.com/progedu/webappcontest/commit/c9d91be7a86c220b8e0a4bfb1e52562ef6cb405e)
+- [GitHub Commit 詳細 / 滑り込み](https://github.com/progedu/webappcontest/commit/2de258bec1aa47a4685b4ca90933cedd9e6d8315)
+- [GitHub Commit 詳細 / 消えたコミット](https://github.com/progedu/webappcontest/commit/94daec0b82f18df80a2f14d12783fe49666591a7)
