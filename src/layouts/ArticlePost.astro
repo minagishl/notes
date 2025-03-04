@@ -27,9 +27,37 @@ const {
 } = Astro.props as ArticleProps;
 ---
 
-<html lang='en'>
+<html lang='ja'>
   <head>
     <BaseHead title={title} description={description} emoji={emoji} />
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        description: description,
+        image: emojiToTwemojiUrl(emoji),
+        datePublished: pubDate,
+        dateModified: pubDate,
+        author: {
+          '@type': 'Person',
+          name: 'minagishl',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'minagishl notes',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://notes.minagishl.com/favicon.svg',
+          },
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': Astro.url.href,
+        },
+      })}
+    />
   </head>
 
   <body class='flex flex-col min-h-screen w-screen bg-slate-100'>
@@ -42,7 +70,7 @@ const {
           class='size-16 inline-flex select-none pointer-events-none'
         />
       </div>
-      <article>
+      <article itemscope itemtype='https://schema.org/BlogPosting'>
         <div class='pt-6'>
           <div class='w-full items-center justify-center flex flex-col pb-6 relative'>
             <div class='text-slate-800 text-xl font-semibold m-0 text-center'>
