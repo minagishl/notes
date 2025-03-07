@@ -3,6 +3,7 @@ title: "ZEN Study 動くWebアプリコンテスト2024 冬 に関して"
 description: "コンテストの結果と個人的な振り返り"
 pubDate: "2025-03-04"
 emoji: "🏆"
+hiddenWishlist: true
 ---
 
 ZEN Study 動くWebアプリコンテスト2024 冬で視聴者特別賞を受賞できました！  
