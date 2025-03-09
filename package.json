@@ -11,26 +11,27 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.2",
-    "@iconify-json/mdi": "^1.2.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "astro": "^4.16.13",
+    "@astrojs/tailwind": "^6.0.0",
+    "@iconify-json/mdi": "^1.2.3",
+    "@tailwindcss/vite": "^4.0.12",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.4.2",
     "astro-embed": "^0.9.0",
-    "astro-icon": "^1.1.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "satori": "^0.12.0",
+    "astro-icon": "^1.1.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "satori": "^0.12.1",
     "sharp": "^0.33.5",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "tailwindcss": "^4.0.12",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@types/sharp": "^0.31.1",
+    "@types/sharp": "^0.32.0",
     "astro-compress": "2.3.6"
   }
 }

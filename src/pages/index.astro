@@ -7,6 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { emojiToTwemojiUrl } from '../utils';
+import '../styles/global.css';
 
 const posts = (await getCollection('articles')).sort(
   (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -35,7 +36,7 @@ interface Post {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class='flex flex-col min-h-screen w-screen bg-slate-100'>
+  <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
     <Header />
     <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
       <section>

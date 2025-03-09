@@ -3,10 +3,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import react from "@astrojs/react";
 import compress from "astro-compress";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,6 @@ export default defineConfig({
         },
       },
     }),
-    tailwind(),
     icon(),
     react(),
     compress({
@@ -39,5 +38,9 @@ export default defineConfig({
     shikiConfig: {
       theme: "github-dark-dimmed",
     },
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
