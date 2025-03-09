@@ -52,7 +52,7 @@ const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
           name: 'minagishl notes',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://notes.minagishl.com/favicon.svg',
+            url: new URL('/favicon.ico', Astro.url).href,
           },
         },
         mainEntityOfPage: {
