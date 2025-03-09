@@ -32,7 +32,7 @@ const filteredArticles = articles
   </head>
 
   <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
-    <Header title=`Tag: ${tag}` />
+    <Header title=`Tag: ${tag}` href={`/tags/${tag}`} />
     <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
       <ArticleList posts={filteredArticles} />
     </main>
