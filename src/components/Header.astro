@@ -1,5 +1,11 @@
 ---
 import { SITE_TITLE } from '../consts';
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <header>
@@ -7,7 +13,7 @@ import { SITE_TITLE } from '../consts';
     class='pt-16 max-w-screen-md px-4 md:px-10 mx-auto w-full flex flex-row justify-between items-center'
   >
     <a href='/'>
-      <h1 class='text-slate-800 text-3xl w-full text-start font-semibold'>{SITE_TITLE}</h1>
+      <h1 class='text-slate-800 text-3xl w-full text-start font-semibold'>{title || SITE_TITLE}</h1>
     </a>
   </div>
   <div class='flex px-4 md:px-10 w-full max-w-screen-md mx-auto pt-4 pb-10'>
