@@ -92,7 +92,6 @@ Additional pages can be added in `src/content/other/` following the same format.
 ## Configuration
 
 - `astro.config.mjs`: Astro configuration
-- `tailwind.config.mjs`: Tailwind CSS configuration
 - `tsconfig.json`: TypeScript configuration
 
 ## RSS Feed
