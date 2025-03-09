@@ -3,13 +3,14 @@ title: "レポート提出を自動化したら先生から電話が来た話"
 description: "レポート提出を自動化したら先生から電話が来た話"
 pubDate: "2025/02/10"
 emoji: "🏫"
+tags: ["automation", "trouble"]
 ---
 
 ## はじめに
 
 これは、私が入学して数ヶ月経った頃の出来事です
 
-5 月頃、友人が **Zen Study（旧：N予備校）** の動画が終了すると次の動画に自動遷移するツールを作成していました
+5 月頃、友人が **Zen Study（旧：N 予備校）** の動画が終了すると次の動画に自動遷移するツールを作成していました
 
 私はそのツールをさらに進化させたいと考え、開発を開始し  
 見事に完成させることができました！
@@ -53,11 +54,11 @@ const TYPE_MOVIE_ROUNDED_PLUS = "movie-rounded-plus";
 
 function getList(): ListItem[] {
   const elements = document.querySelectorAll<HTMLLIElement>(
-    'ul[aria-label="必修教材リスト"] > li',
+    'ul[aria-label="必修教材リスト"] > li'
   );
   return Array.from(elements).map((element) => {
     const titleElement = element.querySelector<HTMLSpanElement>(
-      "div div div span:nth-child(2)",
+      "div div div span:nth-child(2)"
     );
     const title = titleElement?.textContent?.trim() ?? "";
     const iconElement = element.querySelector<HTMLElement>("div > svg");

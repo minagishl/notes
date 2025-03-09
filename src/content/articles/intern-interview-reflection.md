@@ -4,6 +4,7 @@ description: "インターンの面接を通して、自分の目的を改めて
 pubDate: "2025/03/08"
 emoji: "💡"
 hiddenWishlist: true
+tags: ["internship", "interview", "feedback"]
 ---
 
 昨日（3/7）、インターンの面接を受けました

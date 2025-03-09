@@ -1,18 +1,30 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Line from '../components/Line.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import { emojiToTwemojiUrl } from '../utils';
-import { type Post } from '../types';
-import '../styles/global.css';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Line from '../../components/Line.astro';
+import { emojiToTwemojiUrl } from '../../utils';
+import { type Post } from '../../types';
+import '../../styles/global.css';
 
-const posts = (await getCollection('articles')).sort(
-  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  const tags = [...new Set(articles.flatMap((article) => article.data.tags || []))];
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.params;
+const articles = await getCollection('articles');
+const filteredArticles = articles
+  .filter((article) => article.data.tags?.includes(tag))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
@@ -27,7 +39,7 @@ const posts = (await getCollection('articles')).sort(
       <section>
         <div class='flex flex-wrap gap-8 items-start justify-between'>
           {
-            posts.map((post: Post) => (
+            filteredArticles.map((post: Post) => (
               <div class='w-full md:w-[47%]'>
                 <article class='flex justify-between'>
                   <a

@@ -3,6 +3,7 @@ title: "Cloudflare Tunnel を利用してローカルホストを一時的に公
 description: "Cloudflare Tunnel を利用してローカルホストを一時的に公開する方法について紹介します"
 pubDate: "2024/12/01"
 emoji: "🌐"
+tags: ["cloudflare", "tunnel"]
 ---
 
 この記事は備忘録です
@@ -25,7 +26,7 @@ cloudflared tunnel login
 cloudflared tunnel create <TUNNEL_NAME>
 ```
 
-これを実行すると、トンネルのUUIDが生成され、対応するJSONファイルが `~/.cloudflared/` に保存されます
+これを実行すると、トンネルの UUID が生成され、対応する JSON ファイルが `~/.cloudflared/` に保存されます
 
 4. ドメインの DNS に CNAME レコードを追加する
 

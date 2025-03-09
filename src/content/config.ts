@@ -11,6 +11,7 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     emoji: z.string(),
     hiddenWishlist: z.boolean().optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
