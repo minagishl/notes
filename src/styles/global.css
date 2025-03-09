@@ -55,11 +55,12 @@
     @apply my-6 border-2 border-t border-slate-200;
   }
 
-  ul {
+  ul,
+  ol {
     @apply list-disc pl-4 my-2;
 
     li {
-      @apply text-sm [&:not(:first-child)]:mt-2;
+      @apply text-sm [&:not(:first-child)]:mt-1.5;
     }
   }
 
