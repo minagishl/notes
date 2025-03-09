@@ -4,10 +4,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Line from '../../components/Line.astro';
-import { emojiToTwemojiUrl } from '../../utils';
-import { type Post } from '../../types';
+import ArticleList from '../../components/ArticleList.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
@@ -36,38 +34,7 @@ const filteredArticles = articles
   <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
     <Header />
     <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
-      <section>
-        <div class='flex flex-wrap gap-8 items-start justify-between'>
-          {
-            filteredArticles.map((post: Post) => (
-              <div class='w-full md:w-[47%]'>
-                <article class='flex justify-between'>
-                  <a
-                    href={`/articles/${post.slug}/`}
-                    class='flex items-center justify-center size-20 rounded-2xl bg-white'
-                  >
-                    <img
-                      src={emojiToTwemojiUrl(post.data.emoji)}
-                      alt={post.data.emoji}
-                      class='size-10 inline-flex select-none pointer-events-none'
-                    />
-                  </a>
-                  <div style='width: calc(100% - 94px);'>
-                    <a href={`/articles/${post.slug}/`}>
-                      <h2 class='text-slate-800 text-base font-semibold m-0 line-clamp-2'>
-                        {post.data.title}
-                      </h2>
-                    </a>
-                    <p class='text-slate-500 text-sm mt-1'>
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                  </div>
-                </article>
-              </div>
-            ))
-          }
-        </div>
-      </section>
+      <ArticleList posts={filteredArticles} />
     </main>
     <Line />
     <Footer />
