@@ -91,9 +91,11 @@ const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
               </div>
             </div>
           </div>
-          <div class='container mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
-            <TableOfContents headings={headings} />
-            <slot />
+          <div class='mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
+            <div class='container'>
+              <TableOfContents headings={headings} />
+              <slot />
+            </div>
             {
               import.meta.env.PUBLIC_AMAZON_WISH_LIST_URL && !hiddenWishlist && (
                 <div class='border-t-2 border-slate-200 mt-6 sm:mt-10'>
