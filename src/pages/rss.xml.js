@@ -16,7 +16,7 @@ export async function GET(context) {
     pages.map((post) => ({
       ...post.data,
       link: `/${post.slug}/`,
-    })),
+    }))
   );
 
   return rss({

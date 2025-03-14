@@ -1,15 +1,15 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import Line from '../../components/Line.astro';
-import ArticleList from '../../components/ArticleList.astro';
-import '../../styles/global.css';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import Line from "../../components/Line.astro";
+import ArticleList from "../../components/ArticleList.astro";
+import "../../styles/global.css";
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles');
+  const articles = await getCollection("articles");
   const tags = [...new Set(articles.flatMap((article) => article.data.tags || []))];
 
   return tags.map((tag) => ({
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
-const articles = await getCollection('articles');
+const articles = await getCollection("articles");
 const filteredArticles = articles
   .filter((article) => article.data.tags?.includes(tag))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
