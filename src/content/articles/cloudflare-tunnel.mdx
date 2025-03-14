@@ -58,24 +58,25 @@ ingress:
 alias tunnel="_tunnel"
 function _tunnel()
 {
-    if [ -z "$1" ]; then
-        echo "Please provide a port number (80 or 3000)."
-        return 1
-    fi
+  if [ -z "$1" ]; then
+    echo "Please provide a port number (80 or 3000)."
+    return 1
+  fi
 
-    case $1 in
-        80)
-            cloudflared tunnel --config ~/.cloudflared/config_80.yml run MacBook-Pro
-            ;;
-        3000)
-            cloudflared tunnel --config ~/.cloudflared/config_3000.yml run MacBook-Pro
-            ;;
-        *)
-            echo "Invalid port number. Only 80 and 3000 are allowed."
-            return 1
-            ;;
-    esac
+  case $1 in
+    80)
+      cloudflared tunnel --config ~/.cloudflared/config_80.yml run MacBook-Pro
+      ;;
+    3000)
+      cloudflared tunnel --config ~/.cloudflared/config_3000.yml run MacBook-Pro
+      ;;
+    *)
+      echo "Invalid port number. Only 80 and 3000 are allowed."
+      return 1
+      ;;
+  esac
 }
+
 ```
 
 またこれに応じて、`~/.cloudflared/config_80.yml` と `~/.cloudflared/config_3000.yml` を作成します
