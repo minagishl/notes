@@ -39,7 +39,7 @@
       @apply text-sm bg-slate-800 flex flex-col font-mono;
       /* Hide unnecessary lines */
       span.line {
-        @apply h-5 [&:last-child]:h-fit;
+        @apply h-5 [&:last-child]:h-fit pr-3 w-fit;
       }
     }
   }
