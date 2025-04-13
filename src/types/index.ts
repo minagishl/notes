@@ -11,5 +11,6 @@ export interface Post {
     emoji: string;
     slug?: string;
     hiddenWishlist?: boolean;
+    hidePubDate?: boolean;
   };
 }

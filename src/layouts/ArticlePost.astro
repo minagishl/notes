@@ -21,9 +21,20 @@ interface Props {
     text: string;
   }[];
   hiddenWishlist: boolean;
+  hidePubDate: boolean;
 }
 
-const { title, description, pubDate, updatedDate, emoji, slug, headings = [], hiddenWishlist } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  emoji,
+  slug,
+  headings = [],
+  hiddenWishlist,
+  hidePubDate,
+} = Astro.props;
 
 const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
   ? `${import.meta.env.PUBLIC_GITHUB_REPO_URL}/blob/main/src/content/articles/${slug}.md`
@@ -84,22 +95,31 @@ const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
               <div>
                 <a href='/' class='hover:underline flex items-center'>TOP</a>
               </div>
-              <div>
-                <span class='text-slate-400'>/</span>
-              </div>
-              <div>
-                <FormattedDate date={pubDate} />に公開
-              </div>
-              {updatedDate && (
-                <>
-                  <div>
-                    <Icon name='mdi:reload' class='size-4 text-slate-400' />
-                  </div>
-                  <div>
-                    <FormattedDate date={updatedDate} />
-                  </div>
-                </>
-              )}
+              {
+                !hidePubDate && (
+                  <>
+                    <div>
+                      <span class='text-slate-400'>/</span>
+                    </div>
+                    <div>
+                      <FormattedDate date={pubDate} />
+                      に公開
+                    </div>
+                  </>
+                )
+              }
+              {
+                updatedDate && (
+                  <>
+                    <div>
+                      <Icon name='mdi:reload' class='size-4 text-slate-400' />
+                    </div>
+                    <div>
+                      <FormattedDate date={updatedDate} />
+                    </div>
+                  </>
+                )
+              }
             </div>
           </div>
           <div class='mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
