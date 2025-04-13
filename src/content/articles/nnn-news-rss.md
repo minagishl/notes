@@ -1,7 +1,7 @@
 ---
 title: "学校のニュースサイトをスクレイピングして RSS フィードを作成した話"
 description: "同好会での活動で利用したい RSS フィードが公式に提供されていなかったため、スクレイピングしてRSSフィードを自作した話"
-pubDate: "2025-04-13"
+pubDate: "2025/04/13"
 emoji: "📰"
 tags: ["development", "php", "rss", "scraping"]
 ---
