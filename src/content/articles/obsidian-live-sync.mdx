@@ -1,0 +1,111 @@
+---
+title: "CouchDB と Obsidian Live Sync で複数デバイス間の同期を実現する"
+description: "Obsidian Live Sync プラグインと CouchDB を使用して、複数デバイス間でノートを同期する方法を解説します"
+pubDate: "2025/04/13"
+emoji: "🔄"
+tags: ["obsidian", "docker", "couchdb"]
+---
+
+## はじめに
+
+Obsidian はマークダウンベースのナレッジベースツールとして人気がありますが、複数デバイス間でノートを同期する場合、iCloud や Dropbox などの外部サービスを利用する必要があります
+
+この記事では、自己ホストの CouchDB サーバーと Obsidian Live Sync プラグインを使用して、より柔軟な同期環境を構築する方法を解説します
+
+## CouchDB サーバーの構築
+
+### Docker Compose ファイルの準備
+
+以下の内容で `compose.yml` を作成します
+
+```yaml
+version: "3.8"
+
+services:
+  couchdb:
+    image: couchdb:latest
+    container_name: couchdb
+    restart: always
+    environment:
+      - COUCHDB_USER= #username
+      - COUCHDB_PASSWORD= #password
+    volumes:
+      - ./local.ini:/opt/couchdb/etc/local.ini
+    ports:
+      - "5984:5984"
+```
+
+### CouchDB 設定ファイルの準備
+
+CouchDB の設定ファイル `local.ini` を以下の内容で作成します
+
+```ini
+[couchdb]
+single_node=true
+max_document_size = 50000000
+
+[chttpd]
+require_valid_user = true
+max_http_request_size = 4294967296
+
+[chttpd_auth]
+require_valid_user = true
+authentication_redirect = /_utils/session.html
+
+[httpd]
+WWW-Authenticate = Basic realm="couchdb"
+enable_cors = true
+
+[cors]
+origins = app://obsidian.md,capacitor://localhost,http://localhost
+credentials = true
+headers = accept, authorization, content-type, origin, referer
+methods = GET, PUT, POST, HEAD, DELETE
+max_age = 3600
+```
+
+この設定により
+
+- ドキュメントの最大サイズを 50MB に設定
+- Basic 認証を有効化
+- CORS を設定して Obsidian からのアクセスを許可
+- HTTP 要求の最大サイズを 4GB に設定
+
+### サーバーの起動
+
+1. `compose.yml` と `local.ini` を同じディレクトリに配置します
+2. `compose.yml` の `COUCHDB_USER` と `COUCHDB_PASSWORD` を設定します
+3. 以下のコマンドでサーバーを起動します
+
+```bash
+docker compose up -d
+```
+
+## Obsidian Live Sync の設定
+
+### プラグインのインストール
+
+1. Obsidian の設定を開きます
+2. コミュニティプラグイン → 閲覧から「Self-hosted LiveSync」を検索してインストール
+3. プラグインを有効化します
+
+### プラグインの設定
+
+1. Self-hosted LiveSync の設定を開きます
+2. 「Remote Database Configuration」セクションで以下を設定
+   - Database URI: `http://localhost:5984`（ローカルの場合）
+   - Username: CouchDB で設定したユーザー名
+   - Password: CouchDB で設定したパスワード
+3. 「Test connection」をクリックして接続をテスト
+4. 接続が成功したら「Setup database」をクリック
+
+これにより自動同期が有効になり、変更が自動的にCouchDBサーバーと同期されるようになります！
+
+## 注意点
+
+- 初回同期時は保存されているノートの量によって時間がかかる場合があります
+- 同期の衝突を避けるため、同じノートを複数のデバイスで同時に編集することは避けましょう
+- 定期的なバックアップを忘れずに行うことをおすすめします
+
+以上で、CouchDB と Obsidian Live Sync を使用した同期環境の構築は完了です
+このセットアップにより、インターネット接続があれば世界中どこからでもノートにアクセスし、編集することができます！
