@@ -5,11 +5,12 @@ interface Props {
   title: string;
   description: string;
   emoji?: string;
+  noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, emoji = "🟠" } = Astro.props;
+const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -18,7 +19,7 @@ const { title, description, emoji = "🟠" } = Astro.props;
 <link rel='icon' href='/favicon.ico' sizes='32x32' />
 <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 <meta name='generator' content={Astro.generator} />
-<meta name='robots' content='index, follow' />
+<meta name='robots' content={noindex ? "noindex, nofollow" : "index, follow"} />
 <meta name='language' content='ja' />
 <meta name='author' content='minagishl' />
 <meta

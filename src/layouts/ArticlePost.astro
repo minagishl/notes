@@ -24,6 +24,8 @@ interface Props {
   hidePubDate: boolean;
 }
 
+const is404Page = (slug: string) => slug === "404";
+
 const {
   title,
   description,
@@ -43,7 +45,7 @@ const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
 
 <html lang='ja'>
   <head>
-    <BaseHead title={title} description={description} emoji={emoji} />
+    <BaseHead title={title} description={description} emoji={emoji} noindex={is404Page(slug)} />
     <script
       is:inline
       type='application/ld+json'
