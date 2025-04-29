@@ -1,21 +1,18 @@
+import { parse } from "twemoji-parser";
+
 export function codePoint(emoji: string): string {
-  // Convert pictograms to Unicode code points
-  const codePoints = Array.from(emoji)
-    .map((char) => {
-      const codePoint = char.codePointAt(0);
-      return codePoint !== undefined ? codePoint.toString(16) : "";
-    })
-    .join("-");
+  const emojiUrl = parse(emoji, { assetType: "svg" });
 
-  // Remove part after the first hyphen
-  const cleanedCodePoints = codePoints.split("-")[0];
+  if (!emojiUrl[0]) return "";
+  const codePoints = emojiUrl[0].url.split("/").slice(-1)[0].split(".")[0];
 
-  return cleanedCodePoints;
+  // Returns the completed URL
+  return codePoints;
 }
 
 export function emojiToTwemojiUrl(emoji: string): string {
   const baseUrl = "https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.1.0/svg/";
 
   // Returns the completed URL
-  return `${baseUrl}${codePoint(emoji)}.svg`;
+  return baseUrl + codePoint(emoji) + ".svg";
 }

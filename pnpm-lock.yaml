@@ -62,6 +62,9 @@ importers:
       tailwindcss:
         specifier: ^4.0.12
         version: 4.0.12
+      twemoji-parser:
+        specifier: ^14.0.0
+        version: 14.0.0
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
@@ -69,6 +72,9 @@ importers:
       '@types/sharp':
         specifier: ^0.32.0
         version: 0.32.0
+      '@types/twemoji-parser':
+        specifier: ^13.1.4
+        version: 13.1.4
       astro-compress:
         specifier: 2.3.6
         version: 2.3.6(@types/node@22.13.9)(jiti@2.4.2)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
@@ -905,6 +911,9 @@ packages:
 
   '@types/tar@6.1.13':
     resolution: {integrity: sha512-IznnlmU5f4WcGTh2ltRu/Ijpmk8wiWXfF0VA4s+HPjHZgvFggk1YaIkbo5krX/zUCzWF8N/l4+W/LNxnvAJ8nw==}
+
+  '@types/twemoji-parser@13.1.4':
+    resolution: {integrity: sha512-pDZcn6irxV/CD8C9cAEyZeECKFGZud8R5Zvs9PLO+5361GXu8khZ2peEwidMwq1dqYFSAbSQCUNkWDl87DsX2g==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -2645,6 +2654,9 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
+  twemoji-parser@14.0.0:
+    resolution: {integrity: sha512-9DUOTGLOWs0pFWnh1p6NF+C3CkQ96PWmEFwhOVmT3WbecRC+68AIqpsnJXygfkFcp4aXbOp8Dwbhh/HQgvoRxA==}
+
   type-fest@4.37.0:
     resolution: {integrity: sha512-S/5/0kFftkq27FPNye0XM1e2NsnoD/3FS+pBmbjmmtLT6I+i344KoOf7pvXreaFsDamWeaJX55nczA1m5PsBDg==}
     engines: {node: '>=16'}
@@ -3954,6 +3966,8 @@ snapshots:
     dependencies:
       '@types/node': 22.13.9
       minipass: 4.2.8
+
+  '@types/twemoji-parser@13.1.4': {}
 
   '@types/unist@2.0.11': {}
 
@@ -6377,6 +6391,8 @@ snapshots:
       typescript: 5.8.2
 
   tslib@2.8.1: {}
+
+  twemoji-parser@14.0.0: {}
 
   type-fest@4.37.0: {}
 
