@@ -13,6 +13,7 @@ const articles = defineCollection({
     hiddenWishlist: z.boolean().optional(),
     tags: z.array(z.string()).optional(),
     hidePubDate: z.boolean().optional(),
+    podcastUrl: z.string().optional(),
   }),
 });
 

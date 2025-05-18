@@ -4,6 +4,7 @@ description: "自分が所有するドメインが悪用されて偽装メール
 pubDate: "2025/05/19"
 emoji: "🔒"
 tags: ["dns", "security", "email"]
+podcastUrl: "https://cdn.jsdelivr.net/gh/minagishl/assets/podcasts/dns-email-spoofing-prevention.wav"
 ---
 
 ## はじめに
