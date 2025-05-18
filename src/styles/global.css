@@ -45,7 +45,7 @@
   }
 
   code {
-    @apply text-xs p-0.5 bg-slate-200 rounded　text-slate-700/90 px-1;
+    @apply text-xs p-0.5 bg-slate-200 rounded px-1;
   }
 
   blockquote {
