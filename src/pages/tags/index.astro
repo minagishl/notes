@@ -1,0 +1,49 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Line from "../../components/Line.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import "../../styles/global.css";
+
+// Get all unique tags from articles
+const articles = await getCollection("articles");
+const allTags = [...new Set(articles.flatMap((article) => article.data.tags || []))].sort();
+
+// Count articles for each tag
+const tagCounts = allTags.reduce(
+  (acc, tag) => {
+    acc[tag] = articles.filter((article) => article.data.tags?.includes(tag)).length;
+    return acc;
+  },
+  {} as Record<string, number>
+);
+---
+
+<!doctype html>
+<html lang='ja'>
+  <head>
+    <BaseHead title={`Tags - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
+    <Header title='All Tags' />
+    <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
+      <div class='flex flex-wrap gap-2'>
+        {
+          allTags.map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class='bg-white px-4 rounded-lg text-slate-700 hover:bg-slate-200 transition-colors flex items-center justify-between border border-slate-200'
+            >
+              <span class='font-medium'>{tag}</span>
+            </a>
+          ))
+        }
+      </div>
+    </main>
+    <Line />
+    <Footer />
+  </body>
+</html>
