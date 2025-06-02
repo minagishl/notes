@@ -1,0 +1,136 @@
+{
+  "items": [
+    {
+      "name": "Google Calendar Tonton",
+      "repositoryName": "google-calendar-tonton",
+      "href": "https://github.com/minagishl/google-calendar-tonton/",
+      "description": "Auto-send Tonton’s schedule from Google Calendar."
+    },
+    {
+      "name": "Gmail Label Extension",
+      "repositoryName": "gmail-label-extension",
+      "href": "https://github.com/minagishl/gmail-label-extension",
+      "description": "Chrome extension for managing Gmail labels with custom rules"
+    },
+    {
+      "name": "Hono Splatoon Bot",
+      "repositoryName": "hono-splatoon-bot",
+      "href": "https://github.com/minagishl/hono-splatoon-bot",
+      "description": "A LINE bot that returns Splatoon stage information using Hono."
+    },
+    {
+      "name": "N High School RSS",
+      "repositoryName": "nnn-news-rss",
+      "href": "https://github.com/minagishl/nnn-news-rss",
+      "description": "Scraping the school's website for RSS"
+    },
+    {
+      "name": "Image Prompt Generator",
+      "repositoryName": "image-prompt-generator",
+      "href": "https://github.com/minagishl/image-prompt-generator",
+      "description": "This is a tool that easily generates prompts for use with AI image generation."
+    },
+    {
+      "name": "License Explorer",
+      "repositoryName": "license-explorer",
+      "href": "https://github.com/minagishl/license-explorer",
+      "description": "A convenient application that allows you to search for and view famous licenses."
+    },
+    {
+      "name": "Face to Emoji",
+      "repositoryName": "preact-face-to-emoji",
+      "href": "https://github.com/minagishl/preact-face-to-emoji",
+      "description": "Automatically detects faces and replaces them with pictograms"
+    },
+    {
+      "name": "Hono Calendar Bot",
+      "repositoryName": "hono-calendar-bot",
+      "href": "https://github.com/minagishl/hono-calendar-bot",
+      "description": "Sending a message to the bot returns today's schedule"
+    },
+    {
+      "name": "Percent Clock",
+      "repositoryName": "preact-percent-clock",
+      "href": "https://github.com/minagishl/preact-percent-clock",
+      "description": "This application is capable of displaying the progress toward a specified time as a percentage."
+    },
+    {
+      "name": "Canvas",
+      "repositoryName": "canvas",
+      "href": "https://github.com/minagishl/canvas",
+      "description": "A free canvas tool available online for building ideas."
+    },
+    {
+      "name": "Discord Email Auth",
+      "repositoryName": "discord-email-auth",
+      "href": "https://github.com/minagishl/discord-email-auth",
+      "description": "Assign roles to Discord members using Google authentication."
+    },
+    {
+      "name": "Watermark",
+      "repositoryName": "watermark",
+      "href": "https://github.com/minagishl/watermark",
+      "description": "Tools for easy watermark creation"
+    },
+    {
+      "name": "Marknote",
+      "repositoryName": "marknote",
+      "href": "https://github.com/minagishl/marknote",
+      "description": "Notepad with no server-side processing and Markdown"
+    },
+    {
+      "name": "Google Account Permission Handler",
+      "repositoryName": "google-account-permission-handler",
+      "href": "https://github.com/minagishl/google-account-permission-handler",
+      "description": "Tool to switch to an authorized account."
+    },
+    {
+      "name": "Hono Avatars",
+      "repositoryName": "hono-avatars",
+      "href": "https://github.com/minagishl/hono-avatars",
+      "description": "Avatar generation API using Hono"
+    },
+    {
+      "name": "Discord Bot TypeScript Template",
+      "repositoryName": "discord-bot-typescript-template",
+      "href": "https://github.com/minagishl/discord-bot-typescript-template",
+      "description": "Discord Bot template created using TypeScript"
+    },
+    {
+      "name": "Secret Generation Tool",
+      "repositoryName": "generate-secret",
+      "href": "https://github.com/minagishl/generate-secret",
+      "description": "API to easily generate secret keys"
+    },
+    {
+      "name": "Deepl Translation Discord Bot",
+      "repositoryName": "discord-bot-deepl-translation",
+      "href": "https://github.com/minagishl/discord-bot-deepl-translation",
+      "description": "It is a translation BOT using DeepL API"
+    },
+    {
+      "name": "License Comparison App",
+      "repositoryName": "pages-licenses",
+      "href": "https://github.com/minagishl/pages-licenses",
+      "description": "Open source licenses can be checked"
+    },
+    {
+      "name": "Shiemmitsumoriyadokarikun",
+      "repositoryName": "project-inclusive/OpenFisca-Japan",
+      "href": "https://github.com/project-inclusive/OpenFisca-Japan/",
+      "description": "Projects I am helping with"
+    },
+    {
+      "name": "PostCSS Package",
+      "repositoryName": "postcss-obfuscate-custom-properties",
+      "href": "https://github.com/minagishl/postcss-obfuscate-custom-properties",
+      "description": "Obfuscate CSS custom properties"
+    },
+    {
+      "name": "PostCSS Package",
+      "repositoryName": "postcss-classname-obfuscator",
+      "href": "https://github.com/minagishl/postcss-classname-obfuscator",
+      "description": "Automatically obfuscate CSS class names"
+    }
+  ]
+}
