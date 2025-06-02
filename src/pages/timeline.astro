@@ -1,0 +1,192 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Line from "../components/Line.astro";
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+import FormattedDate from "../components/FormattedDate.astro";
+import { emojiToTwemojiUrl } from "../utils";
+
+// Type definition for timeline items
+interface TimelineItem {
+  name: string;
+  value: string;
+  date: string;
+  href: string;
+}
+
+// Type for processed timeline item with Date object
+interface ProcessedTimelineItem extends Omit<TimelineItem, "date"> {
+  date: Date;
+}
+
+// Type for grouped timeline items
+interface GroupedTimelines {
+  [year: number]: ProcessedTimelineItem[];
+}
+
+// Get timeline data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const timelinesPath = path.join(__dirname, "../../public/timelines.json");
+const timelinesData = JSON.parse(readFileSync(timelinesPath, "utf-8"));
+const timelineItems: TimelineItem[] = timelinesData.items;
+
+// Group timeline items by year
+const groupedByYear: GroupedTimelines = timelineItems.reduce<GroupedTimelines>((acc, item) => {
+  const date = new Date(item.date);
+  const year = date.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push({
+    ...item,
+    date: date,
+  });
+  return acc;
+}, {});
+
+// Sort years in descending order
+const sortedYears = Object.keys(groupedByYear).sort(
+  (a: string, b: string) => parseInt(b) - parseInt(a)
+);
+
+const pubDate = new Date("2025/06/02");
+const updatedDate = null;
+---
+
+<html lang='ja'>
+  <head>
+    <BaseHead title='タイムライン' description='活動の記録' emoji='⏳' noindex={false} />
+    <script
+      is:inline
+      type='application/ld+json'
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: "Timeline",
+        description: "活動の記録",
+        image: emojiToTwemojiUrl("⏳"),
+        datePublished: new Date().toISOString(),
+        dateModified: new Date().toISOString(),
+        author: {
+          "@type": "Person",
+          name: "minagishl",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "minagishl notes",
+          logo: {
+            "@type": "ImageObject",
+            url: new URL("/favicon.ico", Astro.url).href,
+          },
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": Astro.url.href,
+        },
+      })}
+    />
+  </head>
+
+  <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
+    <span class='pt-16 max-w-screen-md px-4 md:px-10 mx-auto w-full flex'></span>
+    <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
+      <div class='w-full flex items-center justify-center'>
+        <img
+          src={emojiToTwemojiUrl("⏳")}
+          alt='⏳'
+          class='size-16 inline-flex select-none pointer-events-none'
+        />
+      </div>
+      <article itemscope itemtype='https://schema.org/BlogPosting'>
+        <div class='pt-6'>
+          <div class='w-full items-center justify-center flex flex-col pb-6 relative'>
+            <div class='text-slate-800 text-xl font-semibold m-0 text-center'>
+              <h1>タイムライン</h1>
+            </div>
+            <div class='text-slate-500 text-sm mt-2 flex items-center justify-center space-x-2'>
+              <div>
+                <a href='/' class='hover:underline flex items-center'>TOP</a>
+              </div>
+              <div>
+                <span class='text-slate-400'>/</span>
+              </div>
+              <div>
+                <FormattedDate date={pubDate} />
+                に公開
+              </div>
+              {
+                updatedDate && (
+                  <>
+                    <div>
+                      <Icon name='mdi:reload' class='size-4 text-slate-400' />
+                    </div>
+                    <div>
+                      <FormattedDate date={updatedDate} />
+                    </div>
+                  </>
+                )
+              }
+            </div>
+          </div>
+          <div class='mt-2 p-6 sm:p-9 sm:px-10 bg-white rounded-md'>
+            <div class='container flex flex-col my-2'>
+              {
+                sortedYears.map((year) => (
+                  <div class='mb-8'>
+                    <h2>{year}</h2>
+                    <div class='relative'>
+                      {/* Vertical timeline line */}
+                      <div class='absolute left-[9px] top-2 bottom-0 w-[2px] bg-slate-200' />
+
+                      <div class='flex flex-col gap-8'>
+                        {groupedByYear[parseInt(year)]
+                          .sort((a, b) => b.date.getTime() - a.date.getTime())
+                          .map((item) => (
+                            <div class='flex items-start'>
+                              {/* Timeline dot */}
+                              <div class='relative'>
+                                <div class='size-4 rounded-full bg-slate-300 z-10 mt-1.5 ml-0.5' />
+                              </div>
+
+                              <div class='ml-6 flex-1'>
+                                <div class='flex flex-col'>
+                                  <div class='flex items-baseline justify-between'>
+                                    <h3 class='text-lg font-medium text-slate-800'>{item.name}</h3>
+                                    <span class='text-slate-500 text-sm'>
+                                      <FormattedDate date={item.date} />
+                                    </span>
+                                  </div>
+                                  <p class='text-slate-600 mt-1'>{item.value}</p>
+                                  {item.href && (
+                                    <a
+                                      href={item.href}
+                                      target='_blank'
+                                      rel='noopener noreferrer'
+                                      class='text-xs mt-2 text-blue-600 hover:underline inline-flex items-center'
+                                    >
+                                      詳細を見る
+                                    </a>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <Line />
+    <Footer />
+  </body>
+</html>

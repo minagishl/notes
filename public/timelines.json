@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "name": "ZEN Study 動くWebページコンテスト 2024 夏",
+      "value": "優秀賞を受賞",
+      "date": "2024/10/31",
+      "href": "https://progedu.github.io/webappcontest/2024/summer/result/index.html"
+    },
+    {
+      "name": "ZEN Study 動くWebアプリコンテスト 2024 冬",
+      "value": "視聴者特別賞を受賞",
+      "date": "2025/03/04",
+      "href": "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
+    },
+    {
+      "name": "Zenn のトレンドに掲載されました！",
+      "value": "Hono + Satori + Cloudflare でアバター生成アプリを作成した記事がトレンド8位になりました",
+      "date": "2024/07/27",
+      "href": "https://zenn.dev/minagishl/articles/5fd539d5562c86"
+    },
+    {
+      "name": "Open Data Hackathon に参加しました！",
+      "value": "発表をしましたが、何を言ったか全く覚えていません\n緊張して正しく答えられなかったと思います",
+      "date": "2024/03/15",
+      "href": "https://odhackathon.metro.tokyo.lg.jp/"
+    },
+    {
+      "name": "技創くらぶに参加しました！",
+      "value": "技創くらぶに参加することを決めました",
+      "date": "2024/01/01",
+      "href": "https://github.com/tech-creative-club/"
+    },
+    {
+      "name": "ポートフォリオを公開しました！",
+      "value": "人生初のポートフォリオを公開しました",
+      "date": "2024/02/09",
+      "href": "https://minagishl.com"
+    },
+    {
+      "name": "Tokyo OSS Party 2024",
+      "value": "技創くらぶが地域課題解決賞を受賞しました",
+      "date": "2024/02/25",
+      "href": ""
+    }
+  ]
+}
