@@ -10,15 +10,6 @@ import "../../styles/global.css";
 // Get all unique tags from articles
 const articles = await getCollection("articles");
 const allTags = [...new Set(articles.flatMap((article) => article.data.tags || []))].sort();
-
-// Count articles for each tag
-const tagCounts = allTags.reduce(
-  (acc, tag) => {
-    acc[tag] = articles.filter((article) => article.data.tags?.includes(tag)).length;
-    return acc;
-  },
-  {} as Record<string, number>
-);
 ---
 
 <!doctype html>
