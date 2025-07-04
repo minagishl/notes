@@ -19,7 +19,7 @@ const posts = (await getCollection("articles")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class='flex flex-col min-h-dvh w-dvw bg-slate-100'>
+  <body class='flex flex-col min-h-dvh w-dvw bg-slate-100 antialiased'>
     <Header />
     <main class='max-w-screen-md w-full px-4 md:px-10 mx-auto flex-1'>
       <ArticleList posts={posts} />
