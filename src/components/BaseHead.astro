@@ -1,5 +1,6 @@
 ---
 import { codePoint } from "../utils.ts";
+import { SITE_TITLE } from "../consts.ts";
 
 interface Props {
   title: string;
@@ -48,6 +49,7 @@ const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 <meta property='og:url' content={Astro.url} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
+<meta property='og:site_name' content={SITE_TITLE} />
 <meta
   property='og:image'
   content={new URL(
