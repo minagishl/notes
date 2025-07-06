@@ -1,5 +1,5 @@
 ---
-title: "自己ホスト可能な最強デプロイメントプラットフォームを徹底解説"
+title: "自己ホスト可能な最強デプロイメントプラットフォーム Dokploy を徹底解説"
 description: "Heroku、Vercel、Netlify の代替として注目されるオープンソースのデプロイメントプラットフォーム Dokploy を詳しく紹介します"
 pubDate: "2025-07-06"
 emoji: "🚀"
