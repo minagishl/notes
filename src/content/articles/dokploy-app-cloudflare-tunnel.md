@@ -34,7 +34,7 @@ tags: ["dokploy", "cloudflare", "tunnel", "deployment", "subdomain"]
 
 ### 1.1 プロジェクトの作成
 
-1. Dokploy の管理画面にアクセス（例：`https://dokploy.yourdomain.com`）
+1. Dokploy の管理画面にアクセス（例：`https://dokploy.example.com`）
 2. 管理画面にログイン
 3. **「Create Project」** をクリック
 4. プロジェクト名を入力（例：`my-portfolio`）

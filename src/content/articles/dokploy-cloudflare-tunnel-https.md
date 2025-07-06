@@ -117,7 +117,7 @@ docker run -d --name cloudflare-tunnel \
 ブラウザで以下の URL にアクセスします
 
 ```
-https://dokploy.yourdomain.com
+https://dokploy.example.com
 ```
 
 Dokploy の管理画面が HTTPS で表示されれば成功です！
