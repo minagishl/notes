@@ -44,6 +44,17 @@ const {
 const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
   ? `${import.meta.env.PUBLIC_GITHUB_REPO_URL}/blob/main/src/content/articles/${slug}.md`
   : null;
+
+// giscus comment system configuration
+const giscusConfig = {
+  repo: import.meta.env.PUBLIC_GISCUS_REPO,
+  repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID,
+  category: import.meta.env.PUBLIC_GISCUS_CATEGORY,
+  categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID,
+};
+
+const isGiscusEnabled =
+  giscusConfig.repo && giscusConfig.repoId && giscusConfig.category && giscusConfig.categoryId;
 ---
 
 <html lang='ja'>
@@ -178,6 +189,38 @@ const githubEditUrl = import.meta.env.PUBLIC_GITHUB_REPO_URL
               )
             }
           </div>
+          <!-- giscus comment system -->
+          {
+            Astro.url.pathname.startsWith("/articles/") && isGiscusEnabled && (
+              <div class='mt-4 w-full'>
+                <details class='w-full flex flex-col'>
+                  <summary class='w-fit mx-auto text-sm p-2.5 px-4 cursor-pointer flex flex-row items-center justify-center rounded-full duration-200 bg-slate-100 hover:bg-blue-100 text-blue-500'>
+                    コメントを表示する
+                    <Icon name='mdi:chevron-down' class='size-4 ml-1' />
+                  </summary>
+                  <div class='mt-4 p-6 sm:p-9 sm:px-10 rounded-md bg-white flex-1 w-full'>
+                    <script
+                      src='https://giscus.app/client.js'
+                      data-repo={giscusConfig.repo}
+                      data-repo-id={giscusConfig.repoId}
+                      data-category={giscusConfig.category}
+                      data-category-id={giscusConfig.categoryId}
+                      data-mapping='pathname'
+                      data-strict='1'
+                      data-reactions-enabled='1'
+                      data-emit-metadata='0'
+                      data-input-position='top'
+                      data-theme='light'
+                      data-lang='ja'
+                      data-loading='lazy'
+                      crossorigin='anonymous'
+                      async
+                    />
+                  </div>
+                </details>
+              </div>
+            )
+          }
         </div>
       </article>
     </main>
