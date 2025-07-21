@@ -3,7 +3,7 @@ title: "XServer の無料 VPS を自動化しようとして諦めた話"
 description: "XServer の無料 VPS 自動延長を実現しようと試行錯誤しましたが、最終的に Cloudflare Turnstile により頓挫した経験談です"
 pubDate: "2025-07-21"
 emoji: "🤖"
-tags: ["プログラミング", "automation", "xserver", "captcha", "web-scraping"]
+tags: ["automation", "xserver", "captcha", "scraping"]
 ---
 
 XServer の無料 VPS 自動更新に挑戦しましたが、最終的に Cloudflare Turnstile という強固な壁に阻まれて断念した話をお話しします
