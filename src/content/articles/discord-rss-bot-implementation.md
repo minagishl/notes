@@ -1,6 +1,6 @@
 ---
 title: "Discord で運用している RSS Bot の話"
-description: "Rsshub を自分でホスティングして MonitorSS を利用した Discord RSS Bot の実装と運用について"
+description: "Rsshub を自分でホスティングして MonitoRSS を利用した Discord RSS Bot の実装と運用について"
 pubDate: "2025/09/04"
 emoji: "🗞️"
 tags: ["discord", "rss", "rsshub", "monitorss", "docker", "bot"]
@@ -11,7 +11,7 @@ Discord で運用している RSS Bot の話
 ## はじめに
 
 Discord サーバーで RSS フィードを自動配信する Bot を作成しました！  
-Rsshub を自分でホスティングして同じコンテナ内から MonitorSS を利用して配信するという構成で、安全に自分だけが使うことができる非常に快適な環境を構築できました
+Rsshub を自分でホスティングして同じコンテナ内から MonitoRSS を利用して配信するという構成で、安全に自分だけが使うことができる非常に快適な環境を構築できました
 
 ## システム構成
 
@@ -23,7 +23,7 @@ Rsshub を自分でホスティングして同じコンテナ内から MonitorSS
 - `monitorss`: Discord Bot として RSS を配信
 - `browserless`: JavaScript が必要なサイトのレンダリング用
 - `redis`: キャッシュとセッション管理
-- `mongo`: MonitorSS の設定データ保存
+- `mongo`: MonitoRSS の設定データ保存
 
 全て Docker Compose で管理しており、コンテナ間の通信で完結しているため外部依存が最小限になっています
 
@@ -192,7 +192,7 @@ cd discord-rss-bot
 docker-compose up -d
 ```
 
-### 2. MonitorSS Web UI での設定
+### 2. MonitoRSS Web UI での設定
 
 `http://localhost:8081` にアクセスして Discord OAuth でログイン後、RSS フィードを設定できます
 
@@ -200,7 +200,7 @@ docker-compose up -d
 
 - Rsshub のフィード URL: `http://localhost:1200/...`
 - 通常の RSS フィード URL も利用可能
-- MonitorSS の Web UI から簡単に追加・編集
+- MonitoRSS の Web UI から簡単に追加・編集
 
 ## 運用での工夫
 
