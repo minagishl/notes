@@ -11,6 +11,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://notes.minagishl.com",
+  trailingSlash: "never",
   integrations: [
     mdx(),
     sitemap({
@@ -38,6 +39,10 @@ export default defineConfig({
     shikiConfig: {
       theme: "github-dark",
     },
+  },
+
+  build: {
+    format: "file",
   },
 
   vite: {
