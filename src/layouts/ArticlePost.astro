@@ -5,7 +5,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Line from "../components/Line.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import PodcastPlayer from "../components/PodcastPlayer.astro";
-import { emojiToTwemojiUrl } from "../utils";
+import { buildCanonicalUrl, emojiToTwemojiUrl } from "../utils";
 import { Icon } from "astro-icon/components";
 import "../styles/global.css";
 
@@ -55,6 +55,8 @@ const giscusConfig = {
 
 const isGiscusEnabled =
   giscusConfig.repo && giscusConfig.repoId && giscusConfig.category && giscusConfig.categoryId;
+
+const canonicalUrl = buildCanonicalUrl(Astro.url, Astro.site);
 ---
 
 <html lang='ja'>
@@ -85,7 +87,7 @@ const isGiscusEnabled =
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": Astro.url.href,
+          "@id": canonicalUrl,
         },
       })}
     />

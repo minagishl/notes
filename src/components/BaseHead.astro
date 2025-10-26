@@ -1,5 +1,5 @@
 ---
-import { codePoint } from "../utils.ts";
+import { buildCanonicalUrl, codePoint } from "../utils.ts";
 import { SITE_TITLE } from "../consts.ts";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalHref = buildCanonicalUrl(Astro.url, Astro.site);
 
 const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 ---
@@ -29,7 +29,7 @@ const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 />
 
 <!-- Canonical URL -->
-<link rel='canonical' href={canonicalURL} />
+<link rel='canonical' href={canonicalHref} />
 
 <!-- RSS Feed -->
 <link
@@ -46,7 +46,7 @@ const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property='og:type' content='website' />
-<meta property='og:url' content={Astro.url} />
+<meta property='og:url' content={canonicalHref} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
 <meta property='og:site_name' content={SITE_TITLE} />
@@ -60,7 +60,7 @@ const { title, description, emoji = "🟠", noindex = false } = Astro.props;
 
 <!-- Twitter -->
 <meta property='twitter:card' content='summary' />
-<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:url' content={canonicalHref} />
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
 <meta

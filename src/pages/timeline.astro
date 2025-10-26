@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import FormattedDate from "../components/FormattedDate.astro";
-import { emojiToTwemojiUrl } from "../utils";
+import { buildCanonicalUrl, emojiToTwemojiUrl } from "../utils";
 
 // Type definition for timeline items
 interface TimelineItem {
@@ -56,6 +56,8 @@ const sortedYears = Object.keys(groupedByYear).sort(
 
 const pubDate = new Date("2025/06/02");
 const updatedDate = null;
+
+const canonicalUrl = buildCanonicalUrl(Astro.url, Astro.site);
 ---
 
 <html lang='ja'>
@@ -86,7 +88,7 @@ const updatedDate = null;
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": Astro.url.href,
+          "@id": canonicalUrl,
         },
       })}
     />
